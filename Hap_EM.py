@@ -3,10 +3,10 @@
 
 
 from sys import *
-from numpy import *
-#from matplotlib import pyplot
 from readfile import *
 from reads_haplotypes import *
+from consistent import *
+from initialize_EM import *
 from EM import *
 from entropy import *
 
