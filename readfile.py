@@ -1,10 +1,4 @@
 
-
-from numpy import *
-from itertools import *
-
-# Functions
-
 # Reading the file:
 def read_input_file(file_argv, start_coordinate, window):
     all_positions = {} # all CpGs as keys
