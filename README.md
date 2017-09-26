@@ -9,7 +9,7 @@ Requirements:
 Input file
 A tab separated file containing the coordinate of the CpG, their methylation state and the sequence read ID. Our code accepts 3 different notations representing the methylation status of the CpG:
 
-methylated 	unmethylated
+	methylated 	unmethylated
 1)		m			u
 2)		Z			z
 3)		1			0
