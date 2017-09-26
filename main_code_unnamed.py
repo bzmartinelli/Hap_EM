@@ -1,28 +1,24 @@
-# implementation of an EM algorithm to estimate the frequencies of methylation haplotypes
-# python Hap_EM.py reads window_range
-
-
 from sys import *
 from readfile import *
-from reads_haplotypes import *
+from haplotypes import *
+from seq_reads_patterns import *
 from consistent import *
 from initialize_EM import *
 from EM import *
 from entropy import *
+from write_output import *
 
 
 max_its = 1000  # number of iterations of EM
-epsilon = 0.00001
+epsilon = 0.00001 # convergence criteria
 min_threshold = 0.0001  # minimum threshold to display haplotype frequency
-reads_file = argv[1]
+reads_file = argv[1] # input file
 start_coordinate = int(argv[2])
 window = int(argv[3])
 
-#o = open(argv[1]+"temp","w")
 
 
-
-# Reading the file:
+# reading the input file:
 all_reads, all_positions, meth_status, n_cpgs = read_input_file(argv[1], start_coordinate, window)
 
 # array with all possible haplotypes
@@ -43,7 +39,7 @@ expected_counts = expected_counts(consistent_hap)
 likelihood, all_logL, logLarray = likelihood(read_count_patterns)
 
 
-# EM
+# EM algorithm
 print 'Calculating...\t'
 
 for its in range(max_its):
@@ -54,21 +50,11 @@ for its in range(max_its):
         break
 
 
-print '\nlog-Likelihood:', logL
-
 # print the haplotypes and their frequencies
 haplotypes_frequencies(hap_freq, min_threshold)
 
 # entropy
-entropy(hap_freq, min_threshold, n_cpgs)
+entropy = entropy(hap_freq, min_threshold, n_cpgs)
 
-
-
-
-# Methylation Frequency calculation
-#methylation_proportion(all_positions, meth_status, reads_file)
-
-#out = open(argv[1]+"_HapsFreqs", "w")
-#out.write('ID\tHaplotypes\tFrequencies\n')
-
-
+# write output file
+output(hap_freq, min_threshold, entropy, argv[1])
