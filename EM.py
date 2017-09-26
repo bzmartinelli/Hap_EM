@@ -60,7 +60,6 @@ def haplotypes_frequencies(hap_freq, min_threshold):
     for h, v in sorted(hap_freq.iteritems(), key=lambda (k,v): (v,k), reverse=True):
         if hap_freq[h] > min_threshold:
             print h, '\t', hap_freq[h]
-#        out.write(argv[1] +'\t'+ str(h) +'\t'+ str(v)+'\n')
 
 
 
