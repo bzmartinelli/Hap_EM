@@ -28,9 +28,10 @@ def meth_freqs(all_positions, meth_status, hap_freq, min_threshold, file_argv):
                     fd[position] += float(hap_freq[h])
             new_fd = fd
 
-    for p in status_proportion.keys():
-        for p2 in new_fd.keys():
-            if p == p2:
-                methfreq.write(str(p)+'\t'+str(status_proportion[p])+'\t'+str(new_fd[p2])+'\n')
-
+#   writing the output file containing the proportion of each CpG based on the calculation using the sequence reads 
+#  or the haplotype frequencies
+    for cpg1 in status_proportion.keys():
+        for cpg2 in new_fd.keys():
+            if cpg1 == cpg2:
+                methfreq.write(str(cpg1)+'\t'+str(status_proportion[cpg1])+'\t'+str(new_fd[cpg2])+'\n')
 
