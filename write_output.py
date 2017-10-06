@@ -1,3 +1,5 @@
+
+# output file containing the haplotype frequencies and the entropy
 def output_freq_entropy(hap_freq, min_threshold, entropy, file_argv):
     out = open(file_argv+"_Frequencies_and_Entropy", "w")
     out.write('Haplotype\tFrequency\n')
@@ -8,7 +10,7 @@ def output_freq_entropy(hap_freq, min_threshold, entropy, file_argv):
 
 
 
-# writing the output file containing the proportion of each CpG based on the calculation using the sequence reads or the haplotype frequencies
+# output file containing the proportion of each CpG based on the calculation using the sequence reads or the haplotype frequencies
 def output_meth(proportion_from_reads, proportion_from_haps, file_argv):
     methout = open(file_argv+"_Proportion_Methylated_CpGs", "w")
     methout.write('Position\tFrom reads\tFrom haplotypes\n')
