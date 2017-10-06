@@ -1,5 +1,6 @@
+
 from sys import *
-from readfile import *
+from read_input_file import *
 from haplotypes import *
 from seq_reads_patterns import *
 from consistent import *
@@ -7,6 +8,7 @@ from initialize_EM import *
 from EM import *
 from entropy import *
 from write_output import *
+from methylation_proportion import *
 
 
 max_its = 1000  # number of iterations of EM
@@ -18,7 +20,7 @@ window = int(argv[3])
 
 
 
-# reading the input file:
+# Reading the file:
 all_reads, all_positions, meth_status, n_cpgs = read_input_file(argv[1], start_coordinate, window)
 
 # array with all possible haplotypes
@@ -39,7 +41,7 @@ expected_counts = expected_counts(consistent_hap)
 likelihood, all_logL, logLarray = likelihood(read_count_patterns)
 
 
-# EM algorithm
+# EM
 print 'Calculating...\t'
 
 for its in range(max_its):
@@ -56,5 +58,13 @@ haplotypes_frequencies(hap_freq, min_threshold)
 # entropy
 entropy = entropy(hap_freq, min_threshold, n_cpgs)
 
-# write output file
+# write output file containing the haplotype frequencies and entropy
 output(hap_freq, min_threshold, entropy, argv[1])
+
+# Methylation Frequency calculation
+meth_freqs(all_positions, meth_status, hap_freq, min_threshold, argv[1])
+
+
+
+
+
