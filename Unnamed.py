@@ -1,7 +1,7 @@
 
 from sys import *
 from read_input_file import *
-from haplotypes import *
+from possible_haplotypes import *
 from seq_reads_patterns import *
 from consistent import *
 from initialize_EM import *
