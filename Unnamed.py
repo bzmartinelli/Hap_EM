@@ -7,8 +7,8 @@ from consistent import *
 from initialize_EM import *
 from EM import *
 from entropy import *
-from write_output import *
 from methylation_proportion import *
+from write_output import *
 
 
 max_its = 1000  # number of iterations of EM
@@ -19,8 +19,7 @@ start_coordinate = int(argv[2])
 window = int(argv[3])
 
 
-
-# Reading the file:
+# reading the input file:
 all_reads, all_positions, meth_status, n_cpgs = read_input_file(argv[1], start_coordinate, window)
 
 # array with all possible haplotypes
@@ -58,11 +57,12 @@ haplotypes_frequencies(hap_freq, min_threshold)
 # entropy
 entropy = entropy(hap_freq, min_threshold, n_cpgs)
 
-# write output file containing the haplotype frequencies and entropy
-output(hap_freq, min_threshold, entropy, argv[1])
+# proportion of methylated CpGs
+proportion_from_reads, proportion_from_haps = meth_freqs(all_positions, meth_status, hap_freq, min_threshold, argv[1])
 
-# Methylation Frequency calculation
-meth_freqs(all_positions, meth_status, hap_freq, min_threshold, argv[1])
+# write output file containing the haplotype frequencies and entropy
+output_freq_entropy(hap_freq, min_threshold, entropy, argv[1])
+output_meth(proportion_from_reads, proportion_from_haps, argv[1])
 
 
 
