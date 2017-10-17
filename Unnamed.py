@@ -58,11 +58,11 @@ haplotypes_frequencies(hap_freq, min_threshold)
 entropy = entropy(hap_freq, min_threshold, n_cpgs)
 
 # proportion of methylated CpGs
-proportion_from_reads, proportion_from_haps = meth_freqs(all_positions, meth_status, hap_freq, min_threshold, argv[1])
+# proportion_from_reads, proportion_from_haps = meth_freqs(all_positions, meth_status, hap_freq, min_threshold, argv[1])
 
 # write output file containing the haplotype frequencies and entropy
 output_freq_entropy(hap_freq, min_threshold, entropy, argv[1])
-output_meth(proportion_from_reads, proportion_from_haps, argv[1])
+# output_meth(proportion_from_reads, proportion_from_haps, argv[1])
 
 
 
