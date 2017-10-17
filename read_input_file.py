@@ -1,5 +1,3 @@
-
-
 # Reading the input file:
 def read_input_file(file_argv, start_coordinate, window):
     all_positions = {} # all CpGs as keys
@@ -13,13 +11,13 @@ def read_input_file(file_argv, start_coordinate, window):
             read = fields[2]
             methylation = str(fields[1])
             # methylation state can be represented in 3 ways on the input file. The code will store the information using '1' for methylated and '0' for unmethylated CpGs representation
+
             if methylation in ('1','m','Z'):
                 methylation = '1'
             elif methylation in ('0','u','z'):
                 methylation = '0'
             else:
-                print " \n Methylation states have to be represented by '1','m','Z' for methylated CpGs and '0','u','z' for unmethylated CpGs.\n"
-                return False
+                raise ValueError('Methylation states have to be represented by 1, m, Z (methylated CpGs) or 0, u, z (unmethylated CpGs).')
             if (position >= start_coordinate and position < (start_coordinate + window)):
                 # if the CpG is in the genomic locus of interest, those 3 dictionaries initialized above are created.
                 all_positions[position] = 1
