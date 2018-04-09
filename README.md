@@ -18,5 +18,5 @@ Making use of the Expectation-Maximization (EM) algorithm, MHap identifies all m
 
 #### Contact
 
-Please, feel free to get in touch by email [martinelli.bz@gmail.com] and [https://github.com/bzmartinelli/MHap/issues].
+Please, feel free to get in touch by email martinelli.bz@gmail.com and https://github.com/bzmartinelli/MHap/issues.
 
