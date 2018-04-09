@@ -4,7 +4,7 @@
 
 #### Maximum likelihood inference of methylation haplotypes<br/><br/>
 Download MHap [here]  
-Download the user guide [here](https://www.dropbox.com/s/63mds4p30b51dcz/MHap_user_guide.pdf?dl=0)<br/><br/>
+Download the user guide [here](file:///Users/Barbara/Downloads/MHap_user_guide.pdf)<br/><br/>
 
 MHap is used to infer methylation haplotypes and to estimate methylation haplotype frequencies as well as methylation entropy from DNA methylation data derived from short-read sequencing.
 
