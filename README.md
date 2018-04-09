@@ -14,6 +14,9 @@ Making use of the Expectation-Maximization (EM) algorithm, MHap identifies all m
 
 #### Usage
 `python PATH/MHap.py -gr <PATH/genomic_regions_file> -data <PATH/cpg_reads_file> 
--data_from <bissnp or bismark> [options] `
+-data_from <bissnp or bismark> [options] `<br/><br/>
 
+#### Contact
+
+Please, feel free to get in touch by email [martinelli.bz@gmail.com] and [https://github.com/bzmartinelli/MHap/issues].
 
