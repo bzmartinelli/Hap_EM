@@ -20,7 +20,9 @@ MHap was implemented in Python 2.6. A typical command-line looks like this:
 `python PATH/MHap.py -gr <PATH/genomic_regions_file> -data <PATH/cpg_reads_file> 
 -data_from <bissnp or bismark> [options] `<br/><br/>
 
+For more detail, please check the user guide.
+
 ### Contact
 
-Please, feel free to get in touch by email martinelli.bz@gmail.com and https://github.com/bzmartinelli/MHap/issues.
+Feel free to get in touch by email martinelli.bz@gmail.com and https://github.com/bzmartinelli/MHap/issues.
 
