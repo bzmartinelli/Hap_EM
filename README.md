@@ -13,14 +13,14 @@ Genomic regions of interested are given by the user. MHap uses a sliding window 
 Making use of the Expectation-Maximization (EM) algorithm, MHap identifies all methylation haplotypes consistent with the sequence reads and estimates the frequency of each haplotype within the windows. Once the algorithm has converged, the inferred haplotype frequencies are used to calculate the Shannon entropy. Also the methylation fraction of individual CpGs is calculated using the methylation states provided by the sequencing reads and using the haplotype frequencies.<br/><br/>
 
 
-#### Usage
+### Usage
 
-MHap was implemented as a command-line application in the Python 2.6.
+MHap was implemented in Python 2.6. A typical command-line looks like this:
 
 `python PATH/MHap.py -gr <PATH/genomic_regions_file> -data <PATH/cpg_reads_file> 
 -data_from <bissnp or bismark> [options] `<br/><br/>
 
-#### Contact
+### Contact
 
 Please, feel free to get in touch by email martinelli.bz@gmail.com and https://github.com/bzmartinelli/MHap/issues.
 
