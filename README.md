@@ -17,7 +17,7 @@ Making use of the Expectation-Maximization (EM) algorithm, MHap identifies all m
 
 MHap was implemented in Python 2.6. A typical command-line looks like this:
 
-`python PATH/MHap.py -gr <PATH/genomic_regions_file> -data <PATH/cpg_reads_file> 
+`python MHap.py -gr <genomic_regions_file> -data <cpg_reads_file> 
 -data_from <bissnp or bismark> [options] `  
 
 For more details, please check the user guide.<br/><br/>
