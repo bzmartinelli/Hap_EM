@@ -28,7 +28,6 @@ else:
     cpg_reads_data = cwd+'/'+args.cpg_reads_data
 
 if str(cwd) in args.genomic_regions:
-    print '\n\nyes\n\n'
     genomic_regions = args.genomic_regions
 else:
     genomic_regions = cwd+'/'+args.genomic_regions
