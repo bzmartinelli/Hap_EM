@@ -1,7 +1,4 @@
 
-#  "pyhton Call_EM.py "+ command_line+ ' -start_w '+ int(p[0])+ ' -end_w '+ int(len(p)-1)+ ' -ID '+ ID
-
-
 import os
 from sys import *
 import argparse
@@ -36,7 +33,7 @@ position_windows = pw
 o = open("EM_temp","w")
 o2 = open("EntropyTemp","w")
 o5 = open("MethTemp","w")
-
+o7 = open("MHLTemp","w")
 
 for position in range(len(position_windows)):
     ID = position_windows[position][0] #id genomic region
@@ -52,11 +49,14 @@ for position in range(len(position_windows)):
     t3 = open("temp3.txt")
     for line3 in t3:
         o5.write(line3)
+    t4 = open("temp4.txt")
+    for line4 in t4:
+        o7.write(line4)
 
 o.close()
 o2.close()
 o5.close()
-
+o7.close()
 
 o = open("EM_temp")
 o3 = open("Estimated_Haplotype_Frequencies","w")
@@ -87,6 +87,16 @@ for line in outputFile5:
 o5.close()
 o6.close()
 
+o7 = open("MHLTemp")
+o8 = open("MHL","w")
+o8.write('Genomic_region\tWindow_start\tWindow_end\tMHL\n')
+outputFile7 = o7.readlines()
+for line in outputFile7:
+    elem = line.replace('\n','').split('\t')
+    print >> o8, line.replace('\n','')
+o7.close()
+o8.close()
+
 
 
 d = str(datetime.datetime.now())
@@ -97,5 +107,6 @@ os.system('mkdir ' + out_path+'/MHap_output_'+d)
 os.system('mv Estimated_Methylation_Proportion '+out_path+'/MHap_output_'+d)
 os.system('mv Estimated_Entropy ' + out_path+'/MHap_output_'+d)
 os.system('mv Estimated_Haplotype_Frequencies ' + out_path+'/MHap_output_'+d)
+os.system('mv MHL ' + out_path+'/MHap_output_'+d)
 
-os.system("rm temp*.txt EM_temp EntropyTemp MethTemp windows new_cpg_reads *.pyc")
+os.system("rm temp*.txt EM_temp EntropyTemp MethTemp MHLTemp windows new_cpg_reads *.pyc")
