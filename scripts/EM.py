@@ -1,4 +1,4 @@
-
+from __future__ import print_function
 from numpy import *
 
 # EM algorithm
@@ -47,35 +47,20 @@ def convergence(its, max_iterations, logL, all_logL, convergence_threshold):
         if fabs(deltaLL) < convergence_threshold: # Compares the deltaLL with the convergence criteria
             converged += 1
         if converged == counter: # If the algorithm converges before the maximun number of iterations, the code breaks and display the results
-            print 'Converged!' #'iteration:', its
+            print('Converged!') #'iteration:', its
             return True
     elif its == (max_iterations - 1): # When the algorithm does not converge after running the given number of iterations
-            print 'Not converged'
+            print('Not converged')
 
 
 # Print the haplotypes and their frequencies
-def haplotypes_frequencies(hap_freq, min_freq_cutoff):
-    print '-'*16, "\nHaplotype\tEstimated frequency\n"
-    for h, v in sorted(hap_freq.iteritems(), key=lambda (k,v): (v,k), reverse=True):
-        if hap_freq[h] > min_freq_cutoff:
-            print h, '\t', hap_freq[h]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#def haplotypes_frequencies(hap_freq, min_freq_cutoff):
+#    print '-'*16, "\nHaplotype\tEstimated frequency\n"
+#    for h, v in sorted(hap_freq.iteritems(), key=lambda (k,v): (v,k), reverse=True):
+#        if hap_freq[h] > min_freq_cutoff:
+#            print h, '\t', hap_freq[h]
+#
+#
 
 
 
