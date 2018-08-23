@@ -1,4 +1,6 @@
+# implementation of an EM algorithm to estimate the frequencies of methylation haplotypes
 
+from __future__ import print_function
 import argparse
 from sys import *
 from read_input_file import *
@@ -10,7 +12,7 @@ from EM import *
 from entropy import *
 from methylation_proportion import *
 from write_output import *
-from mhl import *
+from MHL import *
 
 # argparse
 parser = argparse.ArgumentParser()
@@ -56,7 +58,7 @@ likelihood, all_logL, logLarray = likelihood(read_count_patterns)
 
 
 # EM
-print 'Calculating...'
+print('Calculating...')
 
 for its in range(args.max_iterations):
     EM(read_count_patterns, consistent_hap, hap_freq, expected_counts, all_reads)
@@ -84,5 +86,8 @@ output_meth(proportion_from_reads, proportion_from_haps, args.ID_genomic_region,
 
 # MHL
 MHL(haplos, args.number_of_cpgs, args.ID_genomic_region, args.start_coordinate, args.end_window)
+
+
+
 
 
