@@ -17,10 +17,19 @@ parser.add_argument('-w', '--window_size', type=int, default=1000)
 parser.add_argument('-ncpgs', '--number_of_cpgs', type=int, default=5)
 parser.add_argument('-mmin', '--meth_min', type=float, default=0)
 parser.add_argument('-mmax', '--meth_max', type=float, default=100)
+parser.add_argument('-max_iter', '--max_iterations', type=int, default=1000)
+parser.add_argument('-conv', '--convergence_threshold', type=float, default=0.000001)
+parser.add_argument('-freq_cutoff', '--min_freq_cutoff', type=float, default=0.0001)
+parser.add_argument('-initial_freq', '--initial_freq_em', type=str, required=False)
+
 args = parser.parse_args()
 
 command_line = " ".join(argv[1:])
 cwd = os.getcwd()
+
+
+#genomic_r = args.genomic_regions
+#cpg_r = args.cpg_reads_data
 
 if str(cwd) in args.cpg_reads_data:
     cpg_reads_data = args.cpg_reads_data
@@ -32,6 +41,7 @@ if str(cwd) in args.genomic_regions:
 else:
     genomic_regions = cwd+'/'+args.genomic_regions
 
+
 os.chdir(path[0])
 
 selected_cpgs, id_windows = open_genomic_regions(genomic_regions, cpg_reads_data, args.data_from, args.meth_min, args.meth_max, args.window_size, args.number_of_cpgs)
@@ -39,5 +49,4 @@ selected_cpgs, id_windows = open_genomic_regions(genomic_regions, cpg_reads_data
 writeout(cpg_reads_data, id_windows, selected_cpgs, args.data_from, command_line)
 
 os.system("python call.py "+ command_line + " -f new_cpg_reads " + " -wf windows " + "-cwd "+cwd)
-
 
