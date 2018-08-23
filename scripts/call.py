@@ -1,4 +1,4 @@
-
+from __future__ import print_function
 import os
 from sys import *
 import argparse
@@ -64,7 +64,7 @@ o3.write('Genomic_region\tWindow_start\tWindow_end\tHaplotype\tFrequency\n')
 outputFile = o.readlines()
 for line in outputFile:
     elem = line.replace('\n','').split('\t')
-    print >> o3, line.replace('\n','')
+    print(line.replace('\n',''), file=o3)
 o3.close()
 
 o2 = open("EntropyTemp")
@@ -73,7 +73,7 @@ o4.write('Genomic_region\tWindow_start\tWindow_end\tEstimated_Entropy\n')
 outputFile2 = o2.readlines()
 for line in outputFile2:
     elem = line.replace('\n','').split('\t')
-    print >> o4, line.replace('\n','')
+    print(line.replace('\n',''), file=o4)
 o4.close()
 o4.close()
 
@@ -83,7 +83,7 @@ o6.write('Genomic_region\tWindow_start\tWindow_end\tCpG_position\tFrom_reads\tFr
 outputFile5 = o5.readlines()
 for line in outputFile5:
     elem = line.replace('\n','').split('\t')
-    print >> o6, line.replace('\n','')
+    print(line.replace('\n',''), file=o6)
 o5.close()
 o6.close()
 
@@ -93,7 +93,7 @@ o8.write('Genomic_region\tWindow_start\tWindow_end\tMHL\n')
 outputFile7 = o7.readlines()
 for line in outputFile7:
     elem = line.replace('\n','').split('\t')
-    print >> o8, line.replace('\n','')
+    print(line.replace('\n',''), file=o8)
 o7.close()
 o8.close()
 
