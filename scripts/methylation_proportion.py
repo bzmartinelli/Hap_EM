@@ -1,4 +1,3 @@
-# Methylation Frequency calculation
 
 
 # Calculate the proportion of the CpGs in a methylated state.
