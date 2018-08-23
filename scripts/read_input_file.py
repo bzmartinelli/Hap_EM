@@ -42,4 +42,3 @@ def read_input_file(input_file, start_coordinate, end_window, data_from):
 
 
 
-
