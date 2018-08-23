@@ -3,7 +3,7 @@
 def writeout(input_file, id_windows, selected_cpgs, data_from, command_line):
     w_out = open("windows", "w")
     data_out = open("new_cpg_reads","w")
-    for id, w in id_windows.iteritems():
+    for id, w in id_windows.items():
        for p in w:
             start = p[0]
             end = p[len(p)-1]
