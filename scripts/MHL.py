@@ -1,17 +1,7 @@
-# m: binary array of methylation state along a set of sequences
-
-
-
-
-#m = np.array([ [0,1,1,1],
-#               [1,1,1,1],
-#               [1,0,1,1],
-#               [1,0,1,0] ])
-
 import numpy as np
 
 def MHL(haplos, ncpgs, ID_gr, wstart, wend):
-    m = np.array(haplos)
+    m = np.array(haplos)  # binary array of methylation state along a set of sequences
     mhl = 0
     weight_sum = 0
     for i in range(0,ncpgs):
