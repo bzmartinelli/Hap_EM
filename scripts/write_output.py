@@ -2,13 +2,15 @@
 # output file containing the haplotype frequencies and the entropy
 def output_freq_entropy(hap_freq, threshold_min_freq, entropy, ID_gr, wstart, wend):
 #    out = open("EM_temp", "w")
+    haplos = []
     out = open("temp1.txt", "w")
-    for h, v in sorted(hap_freq.iteritems(), key=lambda (k,v): (v,k), reverse=True):
+    for h, v in sorted(hap_freq.items(), key=lambda k_v: (k_v[1],k_v[0]), reverse=True):
         if hap_freq[h] > threshold_min_freq:
             out.write(str(ID_gr)+'\t'+str(wstart)+'\t'+str(wend)+'\t'+ str(h) +'\t'+ str(float(v)) +'\n')
+            haplos.append(list(h))
     out2 = open("temp2.txt", "w")
     out2.write(str(ID_gr)+'\t'+str(wstart)+'\t'+str(wend)+'\t'+ str(entropy) +'\n')
-
+    return haplos
 
 
 
@@ -26,3 +28,4 @@ def output_meth(proportion_from_reads, proportion_from_haps, ID_gr, wstart, wend
         for cpg2 in proportion_from_haps.keys():
             if cpg1 == cpg2:
                 out3.write(str(ID_gr)+'\t'+str(wstart)+'\t'+str(wend)+'\t'+ str(cpg1)+'\t'+str(proportion_from_reads[cpg1])+'\t'+str(proportion_from_haps[cpg2])+'\n')
+
