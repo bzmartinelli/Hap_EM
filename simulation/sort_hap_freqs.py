@@ -7,6 +7,8 @@ from numpy import *
 
 Sf = open(argv[1])
 Ef = open(argv[2])
+depth = str(argv[3])
+
 
 header = Sf.readline()
 simfreq = {}   # {id:{hap:freq, hap:freq}}
@@ -22,7 +24,7 @@ for line in Ef:
     fields = line.replace('\n','').split('\t')
     estfreq.setdefault(fields[2], {}).setdefault(fields[0],[]).append(float(fields[1]))
 
-outALL = open("Frequencies_"+argv[3]+"_sorted", "w") # argv[3] is the id
+outALL = open("Frequencies_sorted_depth"+depth, "w")
 outALL.write('Haplotype\tSimulated_Frequency\tEstimated_Frequency\tSim_id\n')
 
 counter = 0
@@ -36,20 +38,5 @@ for k, v in simfreq.iteritems():
             outALL.write(str(k2)+'\t'+str(v[k2]).strip("[]")+'\t'+str(0).strip("[]")+'\t'+ str(k)+'\n')
 
 #print 'Number of haplotypes not found: ', counter
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
