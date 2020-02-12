@@ -9,7 +9,7 @@ from numpy import *
 
 for i in range(10, 30, 10):
     i = str(i)
-    os.system("perl simulation.pl 3windows5cpgs  "+i)
+    os.system("perl simulation.pl windows5cpgs  "+i)
 
 for i in range(10, 30, 10):
     i = str(i)
@@ -30,17 +30,17 @@ os.system("rm D*")
 
 
 ## Sort hap frequencies
-for i in range(10, 30, 10):
+for i in range(10, 70, 10):
     i = str(i)
     os.system("python sort_hap_freqs.py Simulated_Frequencies_depth"+i+" Estimated_Frequencies_depth"+i+" "+i)
 
 
 ## Normalize Frequencies
-for i in range(10, 30, 10):
+for i in range(10, 70, 10):
     i = str(i)
     os.system("python normalize_frequencies.py Frequencies_sorted_depth"+i+" "+i) 
 
 ## Normalize Entropy
-for i in range(10, 30, 10):
+for i in range(10, 70, 10):
     i = str(i)
     os.system("python normalize_entropy.py Frequencies_sorted_normalized_depth"+i+" "+i)
