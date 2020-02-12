@@ -15,8 +15,8 @@ for(depth in seq(10,60,10)) {
   for(position in 0:4) {
     Ndepth = c(Ndepth, depth)
     positions = c(positions, position)
-    filenameS = paste("Simulated_Meth_Proportion_5cpgs_depth",depth,sep="")
-    filenameE = paste("Estimated_Meth_Proportion_5cpgs_depth",depth,sep="")
+    filenameS = paste("Simulated_Meth_Proportion_depth",depth,sep="")
+    filenameE = paste("Estimated_Meth_Proportion_depth",depth,sep="")
     dataS = read.table(filenameS,h=T, sep="\t")
     dataE = read.table(filenameE,h=T, sep="\t")
     dataE = dataE[dataE$Position==position,]
@@ -64,7 +64,7 @@ new_labels = c('10'="depth 10", '20'="depth 20", '30'="depth 30",
                '40'="depth 40", '50'="depth 50", '60'="depth 60")
 
 #plots
-jpeg("figS3_2.jpg", res=300, height=6, width=10, units="in")
+jpeg("meth_proport_plots.jpg", res=300, height=6, width=10, units="in")
 ggplot(SqEall, aes(x=as.factor(Position), y=MeanSE, group=Method, colour=Method)) +
   geom_pointrange(aes(ymin=MeanSE-SE, ymax=MeanSE+SE), fatten=1, 
                   position=position_dodge(width=0.4)) + scale_x_discrete(labels=1:5) +
