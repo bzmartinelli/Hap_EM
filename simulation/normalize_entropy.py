@@ -1,11 +1,11 @@
-# python normalize entropy.py hap_frequencies
+# python normalize_entropy.py hap_frequencies_norm depth
 
 from sys import *
 from numpy import *
 
 
 hap_freq_file = open(argv[1])
-depth = argv[2]
+depth = str(argv[2])
 
 haps = {}
 haps_dec = {}
