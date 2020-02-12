@@ -9,7 +9,7 @@ Haps_Freqs = data.frame()
 Ndepth = c()
 for(depth in seq(10,60,10)) {
   Ndepth = c(Ndepth, depth)
-  filename = paste("Frequencies_depth",depth,"_sorted_normalized", sep="")
+  filename = paste("Frequencies_sorted_normalized_depth",depth, sep="")
   data = read.table(filename,h=T,sep="\t", colClasses="character", as.is=T)
   df = data.frame(Haplotype=data$Haplotype, 
                   Simulated_Frequency=as.numeric(data$Simulated_Frequency),
@@ -55,7 +55,7 @@ p1 = ggplot(Props,aes(x=Simulated_Frequency, y=Proportion_Haps, color=Depth)) +
 dev.off()
 
 # normalized frequencies
-jpeg("normalized_frequencies.jpg", res=300, height=6, width=10, units="in")
+jpeg("norm_hap_freq_plots.jpg", res=300, height=6, width=10, units="in")
 p2 = ggplot(Haps_Freqs, aes(x=as.factor(Simulated_Frequency), 
                             y=Estimated_Frequency, fill=Depth)) + 
   geom_boxplot(notch=TRUE, outlier.size = 0.3, lwd=0.35) + 
@@ -84,7 +84,7 @@ Haps_Freqs = data.frame()
 Ndepth = c()
 for(depth in seq(10,60,10)) {
   Ndepth = c(Ndepth, depth)
-  filename = paste("Frequencies_depth",depth,"_sorted", sep="")
+  filename = paste("Frequencies_sorted_depth",depth, sep="")
   data = read.table(filename,h=T,sep="\t", colClasses="character", as.is=T)
   df = data.frame(Haplotype=data$Haplotype, 
                   Simulated_Frequency=as.numeric(data$Simulated_Frequency),
@@ -95,7 +95,7 @@ for(depth in seq(10,60,10)) {
 }
 
 
-jpeg("HapsFreqs.jpg", res=350, height=6, width=9, units="in")
+jpeg("haps_freqs_plots.jpg", res=350, height=6, width=9, units="in")
 ggplot(Haps_Freqs, aes(x=as.factor(Simulated_Frequency), 
                        y=Estimated_Frequency, fill=Depth)) + 
   geom_boxplot(notch=TRUE, outlier.size = 0.3, lwd=0.35) + 
