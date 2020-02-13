@@ -1,4 +1,4 @@
-# python normalize_entropy.py hap_frequencies_norm depth
+# python normalize normentropy.py hap_frequencies_norm depth
 
 from sys import *
 from numpy import *
@@ -20,7 +20,7 @@ for line in hap_freq_file:
 out = open("Estimated_Entropy_normalized_depth"+depth, "w")
 out.write('Estimated_entropy\tSim_id\n')
 
-for id, h in id_haps_f.iteritems():
+for id, h in id_haps_f.items():
     entropy = 0
     for f in h.keys():
         hf = float(str(h[f])[1:-1])
@@ -29,4 +29,3 @@ for id, h in id_haps_f.iteritems():
     N = len(list(f)) #number of cpgs
     entropy = float((1.0 / N)) * entropy
     out.write(str(entropy)+'\t'+str(id)+'\n')
-
