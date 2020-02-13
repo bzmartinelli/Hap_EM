@@ -47,36 +47,17 @@ def convergence(its, max_iterations, logL, all_logL, convergence_criteria):
         if fabs(deltaLL) < convergence_criteria: # Compares the deltaLL with the convergence criteria
             converged += 1
         if converged == counter: # If the algorithm converges before the maximun number of iterations, the code breaks and display the results
-            print '\nConverged! iteration:', its
+            print('\nConverged! iteration:', its)
             return True
     elif its == (max_iterations - 1): # When the algorithm does not converge after running the given number of iterations
-            print 'Convergence problem'
+            print('Convergence problem')
 
 
 # Print the haplotypes and their frequencies
 def haplotypes_frequencies(hap_freq, threshold_min_freq):
-    print '-'*16, "\nHaplotype\tEstimated frequency\n"
-    for h, v in sorted(hap_freq.iteritems(), key=lambda (k,v): (v,k), reverse=True):
+    print('-'*16, "\nHaplotype\tEstimated frequency\n")
+   # for h, v in sorted(hap_freq.items(), key=lambda (k,v): (v,k), reverse=True):
+    for h, f in sorted(hap_freq.items(), key=lambda x: x[1], reverse=True):
         if hap_freq[h] > threshold_min_freq:
-            print h, '\t', hap_freq[h]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            print(h, '\t', f)
 
