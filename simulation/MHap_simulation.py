@@ -7,11 +7,11 @@ from numpy import *
 
 ## Run simulations and edit post files
 
-for i in range(10, 30, 10):
+for i in range(10, 70, 10):
     i = str(i)
     os.system("perl simulation.pl windows5cpgs  "+i)
 
-for i in range(10, 30, 10):
+for i in range(10, 70, 10):
     i = str(i)
     os.system("head -1 D"+i+"_sim_1_Estimated_Frequencies > Estimated_Frequencies_depth"+i)
     os.system("tail -n +2 -q D"+i+"_*_Estimated_Frequencies >> Estimated_Frequencies_depth"+i)
